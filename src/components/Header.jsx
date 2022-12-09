@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';  // eslint-disable-line
 import '../styles/Header.css';
 import LanguageSelect from './header/LanguageSelect';
 
@@ -47,17 +48,29 @@ const Header = ({ itemsInCart, language, languages, onLanguageSelect }) => {
                     </ul>
                 </div>
                 <div id='headerTop' className='container'>
-                    <a id='logo' href='/'>
+                    <Link id='logo' to='/'>
                         <img src='logo/header-logo.jpg' alt='logo' />
-                    </a>
+                    </Link>
 
                     <ul id='navigation'>
-                        <li className='headerList level1'><a className='headerLink' href='/'>WOMEN</a></li>
-                        <li className='headerList level1'><a className='headerLink' href='/'>MENS</a></li>
-                        <li className='headerList level1'><a className='headerLink' href='/'>KIDS</a></li>
-                        <li className='headerList level1'><a className='headerLink' href='/'>FEATURED</a></li>
-                        <li className='headerList level1'><a className='headerLink' href='/'>NEW</a></li>
-                        <li className='headerList level1'><a className='headerLink sale' href='/'>% SALE</a></li>
+                        <li className='headerList level1'>
+                            <Link className='headerLink' to='/category/women'>WOMEN</Link>
+                        </li>
+                        <li className='headerList level1'>
+                            <Link className='headerLink' to='/category/mens'>MENS</Link>
+                        </li>
+                        <li className='headerList level1'>
+                            <Link className='headerLink' to='/category/kids'>KIDS</Link>
+                        </li>
+                        <li className='headerList level1'>
+                            <Link className='headerLink' to='/category/featured'>FEATURED</Link>
+                        </li>
+                        <li className='headerList level1'>
+                            <Link className='headerLink' to='/category/new'>NEW</Link>
+                        </li>
+                        <li className='headerList level1'>
+                            <Link className='headerLink sale' to='/category/sale'>% SALE</Link>
+                        </li>
                     </ul>
 
                     <div className='rightHeader'>
