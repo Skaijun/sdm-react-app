@@ -71,6 +71,10 @@
     z-index: 10;
 }
 
+.languages span {
+    cursor: pointer;
+}
+
 #logo {
     padding-right: 30px;
     display: -webkit-box;

@@ -1,8 +1,16 @@
 import React from 'react';
 import '../styles/Header.css';
+import LanguageSelect from './header/LanguageSelect';
 
-const Header = () => {
-    const numOfItemsInCart = 3;
+const Header = ({ itemsInCart, language, languages, onLanguageSelect }) => {
+    const toggleSelectDropdown = (isShown) => {
+        let li = document.querySelector('.languageSelect');
+        if (isShown) {
+            li.style.display = 'block';
+        } else {
+            li.style.display = 'none';
+        }
+    };
 
     return (
         <div id='header'>
@@ -10,21 +18,29 @@ const Header = () => {
                 <div id='headerTopBar'>
                     <ul className='container'>
                         <li className='flex-pull-right'>
-                            <a href='https://www.google.com/'>Help</a>
+                            <a href='https://www.google.com/'>{language.locale === 'en' ? 'Help' : 'Hilfe'}</a>
                         </li>
-                        <li>
+                        <li
+                            onMouseEnter={() => toggleSelectDropdown(true)}
+                            onMouseLeave={() => toggleSelectDropdown(false)}
+                        >
                             <div className='languages'>
-                                <a
-                                    title='English'
+                                <span
+                                    title={language.title}
                                     className='activeFlag'
-                                    href='/'
-                                >English</a>
+                                >{language.text}</span>
                                 <div className='languageSelect' style={{'display': 'none'}}>
-                                <a
-                                    title='Deutsch'
-                                    className='flag de'
-                                    href='/'
-                                >Deutsch</a>
+                                {
+                                    Object.keys(languages)
+                                        .filter(key => languages[key].title !== language.title)
+                                        .map((locale, index) => {
+                                            return <LanguageSelect
+                                                lang={languages[locale]}
+                                                onLanguageSelect={onLanguageSelect}
+                                                key={index}
+                                            />
+                                        })
+                                }
                                 </div>
                             </div>
                         </li>
@@ -51,12 +67,12 @@ const Header = () => {
                                     <img src='icons/search-icon.png' alt='search-icon' />
                                     <input
                                         className='textbox'
-                                        maxlength='50'
+                                        maxLength='50'
                                         type='text'
                                         id='searchParam'
                                         placeholder='Search...'
                                         name='searchParam'
-                                        autocomplete='off'
+                                        autoComplete='off'
                                     />
                                 </div>
                             </form>
@@ -72,11 +88,11 @@ const Header = () => {
                             </a>
                         </div>
                         <div className='header-basket'>
-                            { numOfItemsInCart ?
+                            { itemsInCart ?
                                 <a href='/'>
                                     <span className='basket-icon-container'>
                                         <img src='icons/basket-empty-icon.png' alt='basket-icon' />
-                                        <span className='basket-icon-count'>{numOfItemsInCart}</span>
+                                        <span className='basket-icon-count'>{itemsInCart}</span>
                                     </span>
                                 </a>
 
