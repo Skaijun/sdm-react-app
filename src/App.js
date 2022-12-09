@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'; // eslint-disable-line
 import Header from './components/Header';
 import './styles/App.css';
 
@@ -18,8 +18,8 @@ const langMapping = {
 function App() {
   const locale = window.localStorage.getItem('locale');
 
-  const [itemsInCart, setItemsInCart] = useState(0);
-  const [languages, setLanguages] = useState(langMapping);
+  const [itemsInCart, setItemsInCart] = useState(0); // eslint-disable-line
+  const [languages, setLanguages] = useState(langMapping); // eslint-disable-line
   const [language, setLanguage] = useState(locale ? languages[locale] : languages.en);
 
   const setLanguageOnSelect = (langObject) => {
