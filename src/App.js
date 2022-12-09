@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react'; // eslint-disable-line
+import { BrowserRouter, Link, Route, Routes, Switch } from 'react-router-dom';  // eslint-disable-line
+import Category from './components/Category';
 import Header from './components/Header';
+import Home from './components/Home';
 import './styles/App.css';
 
 const langMapping = {
@@ -29,16 +32,20 @@ function App() {
 }
 
   return (
-    <div className='page'>
-      <Header
-        itemsInCart={itemsInCart}
-        language={language}
-        languages={languages}
-        onLanguageSelect={setLanguageOnSelect} />
-      <div className='container'>
-        <h1>SDM React App 2022</h1>
+    <BrowserRouter>
+      <div className='page'>
+        <Header
+          itemsInCart={itemsInCart}
+          language={language}
+          languages={languages}
+          onLanguageSelect={setLanguageOnSelect}
+        />
+        <Routes>
+          <Route exact path='/category/:id' element={<Category />} />
+          <Route exact path='/' element={<Home />}/>
+        </Routes>
       </div>
-    </div>
+    </BrowserRouter>
   )
 }
 
