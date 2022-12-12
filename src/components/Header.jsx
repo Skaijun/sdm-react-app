@@ -54,22 +54,16 @@ const Header = ({ itemsInCart, language, languages, onLanguageSelect }) => {
 
                     <ul id='navigation'>
                         <li className='headerList level1'>
-                            <Link className='headerLink' to='/category/women'>WOMEN</Link>
+                            <Link className='headerLink' to='/category/womens-fashion'>WOMEN</Link>
                         </li>
                         <li className='headerList level1'>
-                            <Link className='headerLink' to='/category/mens'>MENS</Link>
+                            <Link className='headerLink' to='/category/mens-fashion'>MENS</Link>
                         </li>
                         <li className='headerList level1'>
-                            <Link className='headerLink' to='/category/kids'>KIDS</Link>
+                            <Link className='headerLink' to='/category/computers'>COMPUTERS</Link>
                         </li>
                         <li className='headerList level1'>
-                            <Link className='headerLink' to='/category/featured'>FEATURED</Link>
-                        </li>
-                        <li className='headerList level1'>
-                            <Link className='headerLink' to='/category/new'>NEW</Link>
-                        </li>
-                        <li className='headerList level1'>
-                            <Link className='headerLink sale' to='/category/sale'>% SALE</Link>
+                            <Link className='headerLink sale' to='/category/bags-and-shoes'>% SALE</Link>
                         </li>
                     </ul>
 

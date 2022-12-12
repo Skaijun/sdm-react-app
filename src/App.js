@@ -29,7 +29,7 @@ function App() {
     setLanguage(langObject);
     window.localStorage.setItem('locale', langObject.locale);
     window.location.reload(true);
-}
+  }
 
   return (
     <BrowserRouter>
@@ -41,7 +41,7 @@ function App() {
           onLanguageSelect={setLanguageOnSelect}
         />
         <Routes>
-          <Route exact path='/category/:id' element={<Category />} />
+          <Route exact path='/category/:cid' element={<Category />} />
           <Route exact path='/' element={<Home />}/>
         </Routes>
       </div>
