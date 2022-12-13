@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'; // eslint-disable-line
 import { BrowserRouter, Link, Route, Routes, Switch } from 'react-router-dom';  // eslint-disable-line
+import ProductDetail from './components/ProductDetail';
 import Category from './components/Category';
 import Header from './components/Header';
 import Home from './components/Home';
@@ -42,6 +43,7 @@ function App() {
         />
         <Routes>
           <Route exact path='/category/:cid' element={<Category />} />
+          <Route exact path='/product/:pid' element={<ProductDetail />} />
           <Route exact path='/' element={<Home />}/>
         </Routes>
       </div>
