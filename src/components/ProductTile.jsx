@@ -1,25 +1,19 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import Helper from '../utils/helpers';
 
 const ProductTile = ({ item }) => {
-    let imgURL = '';
-
-    // small improvement to have better UI visibility
-    if (item.price < 40) {
-        imgURL = '../products/fila_unwind_tee_gold_6450518_1143.jpg';
-    } else if (item.price < 80) {
-        imgURL = '../products/fila_aiken_tee_6601405_1118.jpg';
-    } else if (item.price < 120) {
-        imgURL = '../products/fila_laurens_tee_6601500_1165.jpg';
-    } else {
-        imgURL = '../products/fila_umed_long_sleeve_polo_6450298_1141.jpg';
-    }
+    const navigate = useNavigate();
+    const imgURL = Helper.getImageURL(item.price);
 
     return (
-        <>
-            <div><img src={imgURL} alt='product' /></div>
-            <div>{item.title}</div>
-            <div>{item.price}</div>
-        </>
+        <div className='item-wrapper'>
+            <div className='item-img'>
+                <img src={imgURL} alt='product' onClick={() => navigate(`/product/${item.slug}`)} />
+            </div>
+            <div className='item-title'>{item.title.charAt(0).toUpperCase() + item.title.slice(1)}</div>
+            <div className='item-price'><span>$</span>{item.price.toFixed(2)}</div>
+        </div>
     )
 };
 

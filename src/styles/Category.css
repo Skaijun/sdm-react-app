@@ -2,3 +2,28 @@
     text-align: center;
     margin-top: 20px;
 }
+
+.items-list {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.item-wrapper {
+    max-width: 370px;
+    margin: 15px 40px;
+    padding: 0 5px;
+}
+
+.item-title {
+    font-size: 18px;
+    font-weight: 800;
+    padding: 7px 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.item-price {
+    font-size: 16px;
+    font-weight: 600;
+}
